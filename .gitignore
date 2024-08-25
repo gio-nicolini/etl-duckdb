@@ -1,1 +1,6 @@
 *.db
+*.csv
+*.xlsx
+*.parquet
+*.env
+
