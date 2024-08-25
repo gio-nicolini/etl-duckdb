@@ -40,7 +40,7 @@ if __name__ == "__main__":
     
     manager = file_manager(local_dir, url_folder, con)
     
-    # manager.download_files_from_url()
+    manager.download_files_from_url()
     
     csv_files: DuckDBPyRelation = manager.csv_files()
     
