@@ -24,16 +24,11 @@ class file_manager:
         
         path_query: str = '../querys/history_files.sql'
         
-        # with open(path_query, 'r') as file_query:
+        with open(path_query, 'r') as file_query:
             
-        #     query = file_query.read()
+            query = file_query.read()
             
-        # file_query.close()
-        
-        query = """CREATE TABLE IF NOT EXISTS history_files(
-                        Namefile VARCHAR,
-                        processTime TIMESTAMP
-                    )"""
+        file_query.close()
         
         self.__con.execute(query)
         
@@ -44,17 +39,12 @@ class file_manager:
         
         path_query: str = '../querys/add_files.sql'
         
-        # with open(path_query, 'r') as file_query:
+        with open(path_query, 'r') as file_query:
             
-        #     query = file_query.read()
+            query = file_query.read()
             
-        # file_query.close()
+        file_query.close()
         
-        query = """INSERT INTO history_files(
-                        nameFile,
-                        processTime
-                    )
-                    VALUES (?, ?)"""
         
         inserts: list = [(file, datetime.now()) for file in file_name]
         
@@ -79,15 +69,13 @@ class file_manager:
         self.init_table()
         
         # Read query
-        path_query = '../querys/tracking_files.sql'
+        path_query = './querys/tracking_files.sql'
         
-        # with open(path_query, 'r') as file_query:
+        with open(path_query, 'r') as file_query:
             
-        #     query = file_query.read()
+            query = file_query.read()
             
-        # file_query.close()
-        
-        query = "SELECT nameFile FROM history_files"
+        file_query.close()
         
         # Files already read
         files_in_db: set = set(row[0] for row in self.__con.execute(query).fetchall())
